@@ -1,0 +1,148 @@
+/* Navbar principal */
+.navbar {
+  width: 100%;
+  background: #9F111B;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 64px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo y nombre */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-logo img {
+  height: 40px;
+  width: auto;
+  border-radius: 8px;
+  background: #fff;
+  padding: 2px;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.07);
+}
+
+.navbar-logo span {
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgb(156, 165, 156);
+  letter-spacing: 1px;
+}
+
+/* Enlaces de navegación */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background 0.2s, color 0.2s;
+  padding: 8px 14px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.navbar-links a:hover,
+.navbar-links .active {
+  background: #4CAF50;
+  color: #fff;
+}
+
+.navbar-links a::after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 0%;
+  height: 2px;
+  background: #4CAF50;
+  transition: width 0.2s;
+}
+
+.navbar-links a:hover::after,
+.navbar-links .active::after {
+  width: 80%;
+}
+
+/* Acciones (botones, login, etc) */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar-btn {
+  background: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.navbar-btn:hover {
+  background: #388e3c;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0 10px;
+  }
+  .navbar-links {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 12px 8px;
+    gap: 10px;
+  }
+  .navbar-links {
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .navbar-logo {
+    justify-content: center;
+  }
+  .navbar-logo img {
+    height: 36px;
+  }
+  .navbar-links a {
+    font-size: 1rem;
+    padding: 8px 10px;
+  }
+  .navbar-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+.navbar-link {
+  color: #c0f7c0;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s;
+}
+.navbar-link.active,
+.navbar-link:hover {
+  color: #05f283;
+  font-weight: bold;
+}
