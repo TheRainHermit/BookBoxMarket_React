@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logocontacto from "../assets/images/logo.png";
+import logocontacto from "/images/logo.png";
 import { useAuth } from "../context/AuthContext";
 import { toast } from "react-toastify";
 import { useInsignias } from "../context/InsigniasContext";

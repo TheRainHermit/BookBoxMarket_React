@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useCart } from "../providers/CartProvider";
-import logocontacto from "../assets/images/logo.png";
+import logocontacto from "/images/logo.png";
 import { useAuth } from "../context/AuthContext";
 import { useInventory } from "../context/InventoryContext";
 import { toast } from "react-toastify";

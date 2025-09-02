@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./Slider.css";
-import caja from "../assets/images/caja.jpeg";
-import caja1 from "../assets/images/caja1.jpeg";
-import caja2 from "../assets/images/caja2.jpeg";
+import caja from "/images/caja.jpeg";
+import caja1 from "/images/caja1.jpeg";
+import caja2 from "/images/caja2.jpeg";
 
 const slides = [
   { src: caja, alt: "Caja 1" },

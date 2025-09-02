@@ -1,9 +1,9 @@
 import { useCart } from "../providers/CartProvider";
 import React, { useState } from "react";
-import cata1 from "../assets/images/cata1.png";
-import cata2 from "../assets/images/cata2.png";
-import cata3 from "../assets/images/cata3.png";
-import logo from "../assets/images/logo.png";
+import cata1 from "/images/cata1.png";
+import cata2 from "/images/cata2.png";
+import cata3 from "/images/cata3.png";
+import logo from "/images/logo.png";
 import { useInventory } from "../context/InventoryContext";
 
 const products = [

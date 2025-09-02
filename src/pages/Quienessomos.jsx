@@ -1,7 +1,7 @@
-import logo from "../assets/images/logo.png";
-import foto4 from "../assets/images/foto4.jpg";
-import foto3 from "../assets/images/foto3.jpg";
-import foto2 from "../assets/images/foto2.jpg";
+import logo from "/images/logo.png";
+import foto4 from "/images/foto4.jpg";
+import foto3 from "/images/foto3.jpg";
+import foto2 from "/images/foto2.jpg";
 
 export default function QuienesSomos() {
   return (

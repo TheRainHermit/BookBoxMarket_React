@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
-import logoinicio from "../assets/images/logoinicio.png";
-import userImg from "../assets/images/user.png";
+import logoinicio from "/images/logoinicio.png";
+import userImg from "/images/user.png";
 import { useAuth } from "../context/AuthContext";
 
 export default function Navbar({ onLoginClick }) {
