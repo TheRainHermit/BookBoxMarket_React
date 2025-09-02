@@ -10,7 +10,7 @@ const RankingUsuarios = () => {
   useEffect(() => {
     const fetchRanking = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/usuarios/ranking', {
+        const response = await fetch('/api/usuarios/ranking', {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }

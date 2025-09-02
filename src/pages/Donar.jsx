@@ -22,7 +22,7 @@ export default function Donar() {
     setMensaje("");
     try {
       // 1. Registrar el libro
-      const libroRes = await fetch("http://localhost:3000/api/libros", {
+      const libroRes = await fetch("/api/libros", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -42,7 +42,7 @@ export default function Donar() {
       }
 
       // 2. Registrar la donación
-      const res = await fetch("http://localhost:3000/api/donaciones", {
+      const res = await fetch("/api/donaciones", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

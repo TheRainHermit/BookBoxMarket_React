@@ -15,7 +15,7 @@ export default function RegisterModal({ show, onClose }) {
     e.preventDefault();
     setError("");
     try {
-      await axios.post("http://localhost:3000/api/register", form);
+      await axios.post("/api/register", form);
       setSuccess("¡Registro exitoso! Ahora puedes iniciar sesión.");
       setForm({ email: "", password: "" });
       setTimeout(() => {

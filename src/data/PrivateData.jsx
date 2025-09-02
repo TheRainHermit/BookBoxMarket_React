@@ -11,7 +11,7 @@ export default function PrivateData() {
   const getPrivateData = async () => {
     setError("");
     try {
-      const res = await axios.get("http://localhost:3000/api/private", {
+      const res = await axios.get("/api/private", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

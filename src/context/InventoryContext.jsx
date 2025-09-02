@@ -24,7 +24,7 @@ export default function InventoryProvider({ children }) {
   const fetchStock = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch("http://localhost:3000/api/inventario/stock");
+      const res = await fetch("/api/inventario/stock");
       const data = await res.json();
       setStock(data.stock || initialStock);
       console.log("Stock actualizado desde backend:" + data.stock);
@@ -38,7 +38,7 @@ export default function InventoryProvider({ children }) {
 
   const updateStock = async (id, cantidad) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/inventario/stock/${id}`, {
+      const res = await fetch(`/api/inventario/stock/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"

@@ -61,7 +61,7 @@ export default function Carrito() {
 
     try {
       // 2. Registrar la compra principal
-      const compraRes = await fetch("http://localhost:3000/api/compra", {
+      const compraRes = await fetch("/api/compra", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -83,7 +83,7 @@ export default function Carrito() {
       }
 
       // 3. Registrar el detalle de la compra (sin cantidad)
-      const detalleRes = await fetch("http://localhost:3000/api/compra/detalle", {
+      const detalleRes = await fetch("/api/compra/detalle", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -129,7 +129,7 @@ export default function Carrito() {
 
       try {
         console.log("Verificando insignias para usuario:", user.id_usuario);
-        const insigniasResponse = await fetch('http://localhost:3000/api/insignias/verificar', {
+        const insigniasResponse = await fetch('/api/insignias/verificar', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

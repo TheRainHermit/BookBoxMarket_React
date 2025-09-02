@@ -44,7 +44,7 @@ export default function CambiarContraseña() {
     if (!validarFormulario()) return;
 
     try {
-      const res = await fetch("http://localhost:3000/api/usuario/contraseña", {
+      const res = await fetch("/api/usuario/contraseña", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

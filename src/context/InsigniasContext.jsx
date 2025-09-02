@@ -11,7 +11,7 @@ export function InsigniasProvider({ idUsuario, children }) {
   // Obtener todas las insignias disponibles
   const fetchTodasInsignias = useCallback(async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/insignias');
+      const response = await fetch('/api/insignias');
       if (!response.ok) throw new Error('Error al cargar las insignias');
       const data = await response.json();
       setTodas(data);
@@ -31,7 +31,7 @@ export function InsigniasProvider({ idUsuario, children }) {
     }
     
     try {
-      const response = await fetch(`http://localhost:3000/api/insignias/usuario/${idUsuario}`);
+      const response = await fetch(`/api/insignias/usuario/${idUsuario}`);
       if (!response.ok) throw new Error('Error al cargar insignias del usuario');
       const data = await response.json();
       setObtenidas(data);

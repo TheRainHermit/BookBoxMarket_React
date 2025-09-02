@@ -47,7 +47,7 @@ export function AuthProvider({ children }) {
     console.log("Iniciando login en AuthContext con:", email);
     try {
       console.log("Iniciando login con:", email);
-      const response = await fetch('http://localhost:3000/api/login', {
+      const response = await fetch('/api/login', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ export function AuthProvider({ children }) {
 
         // Si el token expira en menos de 5 minutos, lo refrescamos
         if (timeUntilExpiry < 300) {
-          const response = await fetch('http://localhost:3000/api/refresh', {
+          const response = await fetch('/api/refresh', {
             method: 'POST',
             credentials: 'include'
           });
@@ -150,7 +150,7 @@ export function AuthProvider({ children }) {
   const register = useCallback(async (formData) => {
     try {
       console.log("Registrando usuario:", formData);
-      const response = await fetch('http://localhost:3000/api/registro', {
+      const response = await fetch('/api/registro', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

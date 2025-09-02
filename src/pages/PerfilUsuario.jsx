@@ -26,7 +26,7 @@ export default function PerfilUsuario() {
     const verificarInsignias = async () => {
       if (user?.id_usuario) {
         try {
-          const response = await fetch('http://localhost:3000/api/insignias/verificar', {
+          const response = await fetch('/api/insignias/verificar', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ export default function PerfilUsuario() {
     if (!validarFormulario()) return;
     setMensaje("");
     try {
-      const res = await fetch("http://localhost:3000/api/usuario/perfil", {
+      const res = await fetch("/api/usuario/perfil", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
