@@ -113,7 +113,7 @@ const Contacto = () => {
   };
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = '+1234567890';
+    const phoneNumber = '+573194247585';
     const message = 'Hola, me gustaría más información sobre sus servicios.';
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
@@ -295,7 +295,7 @@ const Contacto = () => {
                   <WhatsAppIcon color="primary" sx={{ mr: 2 }} />
                   <Box>
                     <Typography variant="subtitle2" color="text.secondary">WhatsApp</Typography>
-                    <Typography color="primary" sx={{ fontWeight: 500 }}>+1 234 567 890</Typography>
+                    <Typography color="primary" sx={{ fontWeight: 500 }}>+57 3194247585</Typography>
                   </Box>
                 </Box>
 
@@ -307,7 +307,7 @@ const Contacto = () => {
                   <LocationIcon color="primary" sx={{ mr: 2 }} />
                   <Box>
                     <Typography variant="subtitle2" color="text.secondary">Ubicación</Typography>
-                    <Typography color="text.primary" sx={{ fontWeight: 500 }}>Ciudad, País</Typography>
+                    <Typography color="text.primary" sx={{ fontWeight: 500 }}>Cali, Colombia</Typography>
                   </Box>
                 </Box>
               </Box>
