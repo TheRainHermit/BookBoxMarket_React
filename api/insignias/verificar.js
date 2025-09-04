@@ -62,7 +62,17 @@ export default async function handler(req, res) {
     const otorgadas = await verificarYOtorgarInsignias(id_usuario);
     res.status(200).json({ otorgadas });
   } catch (err) {
-    console.log("Error:", err);
-    res.status(500).json({ error: 'Error al verificar/otorgar insignias' });
+    console.error("[Insignias][Verificar][POST]", {
+      message: err.message,
+      stack: err.stack,
+      code: err.code,
+      params: req.body,
+      time: new Date().toISOString()
+    });
+    const isDev = process.env.NODE_ENV !== 'production';
+    res.status(500).json({
+      error: 'Error al verificar/otorgar insignias',
+      details: isDev ? err.message : undefined
+    });
   }
 }
