@@ -31,7 +31,7 @@ export function InsigniasProvider({ idUsuario, children }) {
     }
     
     try {
-      const response = await fetch(`/api/insignias/usuario/${idUsuario}`);
+      const response = await fetch(`/api/insignias/usuario?id_usuario=${idUsuario}`);
       if (!response.ok) throw new Error('Error al cargar insignias del usuario');
       const data = await response.json();
       setObtenidas(data);
