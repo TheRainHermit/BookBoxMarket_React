@@ -116,13 +116,6 @@ export default async function handler(req, res) {
         );
         const id_compra = result[0].id_compra;
 
-        for (const producto of productos) {
-            await client.query(
-                "INSERT INTO d_compra (id_compra, id_caja, linia) VALUES ($1, $2, $3)",
-                [id_compra, producto.id_caja, producto.linia || 1]
-            );
-        }
-
         await client.query(
             `INSERT INTO puntos_usuario (id_usuario, puntos)
              VALUES ($1, 20)
