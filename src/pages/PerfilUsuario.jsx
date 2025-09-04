@@ -212,7 +212,7 @@ export default function PerfilUsuario() {
           {/* Sección de Ranking */}
           <section className="mt-8">
             <div className="bg-white rounded-lg shadow-md p-6">
-              <RankingUsuarios />
+              {/*<RankingUsuarios />*/}
             </div>
           </section>
         </>
