@@ -105,6 +105,7 @@ export default async function handler(req, res) {
     }
     const usuario_id = user.id_usuario;
     const { fecha_compra, metodo_pago, productos } = req.body;
+    console.log("BODY EN COMPRA:", req.body);
 
     const client = await pool.connect();
     try {
