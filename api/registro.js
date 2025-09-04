@@ -2,6 +2,7 @@ import pool from '../src/db/pg/pgPool.js';
 import bcrypt from 'bcryptjs';
 
 export default async function handler(req, res) {
+  console.log("Req: ", req);
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Método no permitido' });
   }
@@ -10,6 +11,7 @@ export default async function handler(req, res) {
     nombre, apellido, email, password, telefono, direccion,
     ciudad, pais, codigo_postal, fecha_nto, preferencias_literarias
   } = req.body;
+  console.log("Body: ", req.body);
 
   try {
     const hashed = await bcrypt.hash(password, 10);

@@ -13,6 +13,7 @@ async function verificarYOtorgarInsignias(id_usuario) {
       ), 0) as totalGastado,
       (SELECT COUNT(*) FROM donaciones WHERE usuario_id = $1) as totalDonaciones
   `, [id_usuario]);
+  console.log("Stats rows: ", statsRows);
   const { totalcompras: totalCompras, totalgastado: totalGastado, totaldonaciones: totalDonaciones } = statsRows[0];
 
   const { rows: todasInsignias } = await pool.query('SELECT * FROM insignias');
@@ -61,6 +62,7 @@ export default async function handler(req, res) {
     const otorgadas = await verificarYOtorgarInsignias(id_usuario);
     res.status(200).json({ otorgadas });
   } catch (err) {
+    console.log("Error:", err);
     res.status(500).json({ error: 'Error al verificar/otorgar insignias' });
   }
 }
