@@ -3,7 +3,7 @@ import pool from '../../src/db/pg/pgPool.js';
 export default async function handler(req, res) {
   if (req.method === 'GET') {
     try {
-      const { rows } = await pool.query('SELECT id_caja, nombre, stock FROM cajas');
+      const { rows } = await pool.query('SELECT id_caja, nombre_caja, stock FROM cajas');
       res.status(200).json({ stock: rows });
     } catch (err) {
       console.error("[Inventario][Stock][GET]", {

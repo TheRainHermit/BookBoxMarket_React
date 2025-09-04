@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 
   if (req.method === 'GET') {
     try {
-      const { rows } = await pool.query('SELECT id_caja, nombre, stock FROM cajas WHERE id_caja = $1', [id]);
+      const { rows } = await pool.query('SELECT id_caja, nombre_caja, stock FROM cajas WHERE id_caja = $1', [id]);
       if (rows.length === 0) {
         return res.status(404).json({ error: 'Caja no encontrada' });
       }
@@ -35,7 +35,7 @@ export default async function handler(req, res) {
     }
     try {
       const result = await pool.query(
-        'UPDATE cajas SET stock = $1 WHERE id_caja = $2 RETURNING id_caja, nombre, stock',
+        'UPDATE cajas SET stock = $1 WHERE id_caja = $2 RETURNING id_caja, nombre_caja, stock',
         [stock, id]
       );
       if (result.rows.length === 0) {
