@@ -3,8 +3,12 @@ import pool from '../../src/db/pg/pgPool.js';
 export default async function handler(req, res) {
   if (req.method === 'GET') {
     try {
-      const { rows } = await pool.query('SELECT id_caja, nombre_caja, stock FROM cajas');
-      res.status(200).json({ stock: rows });
+      const { rows } = await pool.query('SELECT id_caja, stock FROM inventario');
+      const stockObj = {};
+      rows.forEach(item => {
+        stockObj[item.id_caja] = item.stock;
+      });
+      res.status(200).json({ stock: stockObj });
     } catch (err) {
       console.error("[Inventario][Stock][GET]", {
         message: err.message,
@@ -24,8 +28,14 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Faltan parámetros id_caja o stock' });
     }
     try {
-      await pool.query('UPDATE cajas SET stock = $1 WHERE id_caja = $2', [stock, id_caja]);
-      res.status(200).json({ success: true, message: 'Stock actualizado' });
+      await pool.query('UPDATE inventario SET stock = $1 WHERE id_caja = $2', [stock, id_caja]);
+      // Después de actualizar, devuelve el stock completo como objeto
+      const { rows } = await pool.query('SELECT id_caja, stock FROM inventario');
+      const stockObj = {};
+      rows.forEach(item => {
+        stockObj[item.id_caja] = item.stock;
+      });
+      res.status(200).json({ success: true, stock: stockObj });
     } catch (err) {
       console.error("[Inventario][Stock][PUT]", {
         message: err.message,

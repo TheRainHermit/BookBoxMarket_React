@@ -39,7 +39,7 @@ export default function Catalogo() {
   const handleAddToCart = async (p, idx) => {
     if (stock[p.id_caja] > 0) {
       await addToCart(p);
-      //await updateStock(p.id_caja, stock[p.id_caja] - 1);
+      await updateStock(p.id_caja, stock[p.id_caja] - 1);
       setAdded(prev => {
         const copy = [...prev];
         copy[idx] = true;
