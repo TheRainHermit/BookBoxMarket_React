@@ -69,7 +69,8 @@ export default function Carrito() {
         },
         body: JSON.stringify({
           fecha_compra: fecha,
-          metodo_pago: metodo
+          metodo_pago: metodo,
+          productos
         })
       });
 
