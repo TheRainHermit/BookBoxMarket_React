@@ -13,6 +13,10 @@ const options = {
         url: 'http://localhost:3000/api',
         description: 'Servidor de desarrollo',
       },
+      {
+        url: '/api',
+        description: 'Servidor de producción',
+      }
     ],
     components: {
       securitySchemes: {

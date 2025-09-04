@@ -16,7 +16,7 @@ dotenv.config();
 // Configuración de Express
 const app = express();
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "/api",
   credentials: true
 }));
 app.use(express.json());
@@ -397,7 +397,3 @@ app.use('/api-docs',
   swaggerUi.serve,
   swaggerUi.setup(swaggerSpecs, { explorer: true })
 );
-
-// Inicia el servidor
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Backend corriendo en http://localhost:${PORT}`));
