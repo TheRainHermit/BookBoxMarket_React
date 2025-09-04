@@ -121,6 +121,15 @@ export default async function handler(req, res) {
                 [id_compra, producto.id_caja, producto.linia || 1]
             );
         }
+
+        await client.query(
+            `INSERT INTO puntos_usuario (id_usuario, puntos)
+             VALUES ($1, 20)
+             ON CONFLICT (id_usuario)
+             DO UPDATE SET puntos = puntos_usuario.puntos + 20`,
+            [usuario_id]
+        );
+
         const insigniasOtorgadas = await verificarYOtorgarInsignias(usuario_id);
 
         // Envío de email de agradecimiento por la compra
