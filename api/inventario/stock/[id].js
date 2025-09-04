@@ -42,8 +42,13 @@ export default async function handler(req, res) {
       if (result.rows.length === 0) {
         return res.status(404).json({ error: 'Caja no encontrada' });
       }
-      // Devuelve el stock actualizado en formato objeto
-      res.status(200).json({ success: true, stock: { [result.rows[0].id_caja]: result.rows[0].stock } });
+      // Obtener el stock completo actualizado
+      const all = await pool.query('SELECT id_caja, stock FROM inventario');
+      const stockObj = {};
+      all.rows.forEach(row => {
+        stockObj[row.id_caja] = row.stock;
+      });
+      res.status(200).json({ success: true, stock: stockObj });
     } catch (err) {
       console.error("[Inventario][Stock][ID][PUT]", {
         message: err.message,
