@@ -167,6 +167,35 @@ export default function Carrito() {
     }
   };
 
+  const handleRemove = async (item) => {
+    // Restaurar stock en frontend
+    const cantidad = item.quantity || 1;
+    await updateStock(item.id_caja, stock[item.id_caja] + cantidad);
+    // Actualizar stock global en backend
+    await fetch(`/api/inventario/stock/${item.id_caja}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ stock: stock[item.id_caja] + cantidad })
+    });
+    // Quitar del carrito
+    removeFromCart(item.id_caja);
+  };
+
+  const handleClearCart = async () => {
+    for (const item of cart) {
+      const cantidad = item.quantity || 1;
+      // Actualizar stock en frontend
+      await updateStock(item.id_caja, stock[item.id_caja] + cantidad);
+      // Actualizar stock global en backend
+      await fetch(`/api/inventario/stock/${item.id_caja}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ stock: stock[item.id_caja] + cantidad })
+      });
+    }
+    clearCart();
+  };
+
   return (
     <div className="carrito-container">
       <img src={logocontacto} alt="Logo" style={{ maxWidth: 120, margin: "20px auto", display: "block" }} />
@@ -197,7 +226,7 @@ export default function Carrito() {
                       <button
                         type="button"
                         className="btn-eliminar"
-                        onClick={() => removeFromCart(item.id_caja)}
+                        onClick={() => handleRemove(item)}
                         disabled={isLoading}
                       >
                         Eliminar
@@ -215,7 +244,7 @@ export default function Carrito() {
               <button
                 type="button"
                 className="btn_mod"
-                onClick={clearCart}
+                onClick={handleClearCart}
                 disabled={isLoading}
               >
                 Vaciar Carrito
