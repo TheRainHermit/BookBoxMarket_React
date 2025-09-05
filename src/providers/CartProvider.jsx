@@ -22,8 +22,8 @@ export function CartProvider({ children }) {
     setCart((prev) => [...prev, product]);
   };
 
-  const removeFromCart = (index) => {
-    setCart((prev) => prev.filter((_, i) => i !== index));
+  const removeFromCart = (id_caja) => {
+    setCart((prev) => prev.filter((item) => item.id_caja !== id_caja));
   };
 
   const clearCart = () => setCart([]);
