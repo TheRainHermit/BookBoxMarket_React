@@ -54,6 +54,7 @@ export default function Donar() {
         })
       });
       const data = await res.json();
+      console.log("DATA EN DONAR:", data);
       if (res.ok) {
         refreshInsignias();
         setMensaje("¡Donación registrada!");
